@@ -3,7 +3,7 @@
 
 CMakeFiles/main.dir/src/lenet_test.cpp.o
  ../include/num_detect.h
- /home/alex/桌面/code/lenet_test/num_detect/src/lenet_test.cpp
+ /home/alex/桌面/code/practice_tasks/任务8_Learning/num_detect/src/lenet_test.cpp
  /usr/local/include/opencv4/opencv2/./imgproc/segmentation.hpp
  /usr/local/include/opencv4/opencv2/calib3d.hpp
  /usr/local/include/opencv4/opencv2/core.hpp
@@ -108,7 +108,7 @@ CMakeFiles/main.dir/src/lenet_test.cpp.o
  /usr/local/include/opencv4/opencv2/videoio.hpp
 CMakeFiles/main.dir/src/main.cpp.o
  ../include/num_detect.h
- /home/alex/桌面/code/lenet_test/num_detect/src/main.cpp
+ /home/alex/桌面/code/practice_tasks/任务8_Learning/num_detect/src/main.cpp
  /usr/local/include/opencv4/opencv2/./imgproc/segmentation.hpp
  /usr/local/include/opencv4/opencv2/calib3d.hpp
  /usr/local/include/opencv4/opencv2/core.hpp

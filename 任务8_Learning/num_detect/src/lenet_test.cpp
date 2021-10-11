@@ -19,13 +19,15 @@ void Dnn_NumDetect::loadModel(const string &path)
 
 void Dnn_NumDetect::Classification()
 {
-    Mat src = imread("test.png");
+    Mat src = imread("test.jpeg");
     imshow("src", src);
     waitKey(10);
-    Mat input;
-    input = blobFromImage(src);
-    this->lenet_5.setInputsNames
-    this->lenet_5.setInput(input);
+    cv::cvtColor(src, src, cv::COLOR_BGR2GRAY);
+    Mat inputBolb = blobFromImage(src, 0.00392157f, Size(28, 28), Scalar(), false, false);
+    // Mat input;
+    // input = blobFromImage(src);
+    // this->lenet_5.setInputsNames;
+    this->lenet_5.setInput(inputBolb);
     Mat prob = this->lenet_5.forward();
     cout << prob << endl;
 
@@ -34,4 +36,5 @@ void Dnn_NumDetect::Classification()
     //查找最大值和最小值
     minMaxLoc(prob.reshape(1, 1), 0, &confidence, 0, &classIdPoint);
     int classId = classIdPoint.x;
+    cout << classId << endl;
 }
