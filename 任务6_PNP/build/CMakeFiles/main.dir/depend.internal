@@ -3,7 +3,7 @@
 
 CMakeFiles/main.dir/src/armor_box_identify.cpp.o
  ../include/armor_identify.h
- /home/alex/桌面/code/armor identify test/src/armor_box_identify.cpp
+ /home/alex/桌面/code/practice_tasks/任务6_PNP/src/armor_box_identify.cpp
  /usr/local/include/opencv4/opencv2/./imgproc/segmentation.hpp
  /usr/local/include/opencv4/opencv2/calib3d.hpp
  /usr/local/include/opencv4/opencv2/core.hpp
@@ -111,7 +111,7 @@ CMakeFiles/main.dir/src/armor_box_identify.cpp.o
  /usr/local/include/opencv4/opencv2/videoio.hpp
 CMakeFiles/main.dir/src/light_blobs_identify.cpp.o
  ../include/armor_identify.h
- /home/alex/桌面/code/armor identify test/src/light_blobs_identify.cpp
+ /home/alex/桌面/code/practice_tasks/任务6_PNP/src/light_blobs_identify.cpp
  /usr/local/include/opencv4/opencv2/./imgproc/segmentation.hpp
  /usr/local/include/opencv4/opencv2/calib3d.hpp
  /usr/local/include/opencv4/opencv2/core.hpp
@@ -219,7 +219,7 @@ CMakeFiles/main.dir/src/light_blobs_identify.cpp.o
  /usr/local/include/opencv4/opencv2/videoio.hpp
 CMakeFiles/main.dir/src/main.cpp.o
  ../include/armor_identify.h
- /home/alex/桌面/code/armor identify test/src/main.cpp
+ /home/alex/桌面/code/practice_tasks/任务6_PNP/src/main.cpp
  /usr/local/include/opencv4/opencv2/./imgproc/segmentation.hpp
  /usr/local/include/opencv4/opencv2/calib3d.hpp
  /usr/local/include/opencv4/opencv2/core.hpp
@@ -327,7 +327,7 @@ CMakeFiles/main.dir/src/main.cpp.o
  /usr/local/include/opencv4/opencv2/videoio.hpp
 CMakeFiles/main.dir/src/performance.cpp.o
  ../include/armor_identify.h
- /home/alex/桌面/code/armor identify test/src/performance.cpp
+ /home/alex/桌面/code/practice_tasks/任务6_PNP/src/performance.cpp
  /usr/local/include/opencv4/opencv2/./imgproc/segmentation.hpp
  /usr/local/include/opencv4/opencv2/calib3d.hpp
  /usr/local/include/opencv4/opencv2/core.hpp
@@ -435,7 +435,7 @@ CMakeFiles/main.dir/src/performance.cpp.o
  /usr/local/include/opencv4/opencv2/videoio.hpp
 CMakeFiles/main.dir/src/pnp.cpp.o
  ../include/armor_identify.h
- /home/alex/桌面/code/armor identify test/src/pnp.cpp
+ /home/alex/桌面/code/practice_tasks/任务6_PNP/src/pnp.cpp
  /usr/include/eigen3/Eigen/Core
  /usr/include/eigen3/Eigen/src/Core/Array.h
  /usr/include/eigen3/Eigen/src/Core/ArrayBase.h

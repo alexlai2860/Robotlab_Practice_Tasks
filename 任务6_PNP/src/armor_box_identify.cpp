@@ -38,7 +38,7 @@ static bool lengthJudge(const cv::RotatedRect &light_blob_i, const cv::RotatedRe
     double length_j = lightblob_length(light_blob_j);
     double side_length;
     side_length = sqrt(pow(light_blob_i.center.x - light_blob_j.center.x, 2) + pow(light_blob_i.center.y - light_blob_j.center.y, 2));
-    return (side_length / length_i < 2.5 && side_length / length_i > 0.75);
+    return (side_length / length_i < 3.5 && side_length / length_i > 0.75);
 }
 /* 判断两个灯条的长度比*/
 static bool lengthRatioJudge(const cv::RotatedRect &light_blob_i, const cv::RotatedRect &light_blob_j)

@@ -6,9 +6,11 @@
 #include "armor_identify.h"
 #include <cmath>
 #include <eigen3/Eigen/Dense>
+#include <iomanip>
 #include <opencv2/core/eigen.hpp>
 
 using namespace std;
+using namespace cv;
 
 double get_distance(cv::Point2f &p1, cv::Point2f &p2)
 {
@@ -67,7 +69,7 @@ cv::Point2f PNP::get_vertex(int i)
 }
 
 //用decomposeProjectionMatrix求解欧拉角
-/* void getEulerAngles(cv::Mat pose_mat, cv::Vec3d euler_angle)
+void getEulerAngles(cv::Mat pose_mat, cv::Vec3d euler_angle)
 {
 
     cv::Mat out_intrinsics = cv::Mat(3, 3, CV_64FC1);
@@ -80,11 +82,8 @@ cv::Point2f PNP::get_vertex(int i)
     double pitch = euler_angle[0];
     double roll = euler_angle[2];
 
-    cout << "yaw: " << yaw << endl;
-    cout << "pitch: " << pitch << endl;
-    cout << "roll: " << roll << endl;
+    cout << setprecision(4) << setiosflags(ios::left) << "yaw: " << setw(8) << yaw << "pitch: " << setw(8) << pitch << "roll: " << setw(8) << roll << endl;
 }
- */
 
 /**
  * 功能： 1. 检查是否是旋转矩阵
@@ -99,9 +98,7 @@ bool isRotationMatrix(cv::Mat &R)
     return norm(I, shouldBeIdentity) < 1e-6;
 }
 
-/**
- * 功能： 1. 通过给定的旋转矩阵计算对应的欧拉角
-**/
+//
 cv::Vec3f rotationMatrixToEulerAngles(cv::Mat &R)
 {
     assert(isRotationMatrix(R));
@@ -123,7 +120,11 @@ cv::Vec3f rotationMatrixToEulerAngles(cv::Mat &R)
         y = atan2(-R.at<double>(2, 0), sy);
         z = 0;
     }
-    cout << x * 180 / 3.1416 << " " << y * 180 / 3.1416 << " " << z * 180 / 3.1416 << " " << endl;
+    float yaw, pitch, roll;
+    yaw = y * 180 / 3.1416;
+    pitch = x * 180 / 3.1416;
+    roll = z * 180 / 3.1416;
+    cout << setprecision(4) << setiosflags(ios::left) << "yaw: " << setw(8) << yaw << "pitch: " << setw(8) << pitch << "roll: " << setw(8) << roll << endl;
     return cv::Vec3f(x, y, z);
 }
 
@@ -136,16 +137,22 @@ void PNP::get_position()
     fs["distortion_coefficients"] >> distortion_coefficients;
 
     vector<cv::Point3f> armor_vertex1;
-    armor_vertex1.push_back(cv::Point3f(-33.75f, -12.0f, 0));
-    armor_vertex1.push_back(cv::Point3f(+33.75f, -12.0f, 0));
-    armor_vertex1.push_back(cv::Point3f(+33.75f, +12.0f, 0));
-    armor_vertex1.push_back(cv::Point3f(-33.75f, +12.0f, 0));
+    armor_vertex1.push_back(cv::Point3f(-33.75f, -13.5f, 0));
+    armor_vertex1.push_back(cv::Point3f(+33.75f, -13.5f, 0));
+    armor_vertex1.push_back(cv::Point3f(+33.75f, +13.5f, 0));
+    armor_vertex1.push_back(cv::Point3f(-33.75f, +13.5f, 0));
 
     vector<cv::Point2f> armor_vertex2;
     for (int i = 0; i < 4; i++)
     {
         armor_vertex2.push_back(this->get_vertex(i));
     }
+
+    /*for (int i = 0; i < 4; i++)
+    {
+        armor_vertex2[i].x = armor_vertex2[i].x - 
+    }*/
+
     /* 
     cout << pnp.get_vertex(1, pnp).x << endl;
     cout << "vertex" << armor_vertex2[1].x << " " << armor_vertex2[1].y << endl;
@@ -158,30 +165,37 @@ void PNP::get_position()
 
     cv::solvePnP(armor_vertex1, armor_vertex2, camera_matrix, distortion_coefficients, raux, taux);
 
-    raux.convertTo(Rvec, CV_32F); //旋转向量
-    taux.convertTo(Tvec, CV_32F); //平移向量
+    raux.convertTo(Rvec, CV_64FC1); //旋转向量
+    taux.convertTo(Tvec, CV_64FC1); //平移向量
 
     cv::Mat rotMat;
     cv::Rodrigues(raux, rotMat); //由于solvePnP返回的是旋转向量，故用罗德里格斯变换变成旋转矩阵
 
     /* //格式转换
-    Eigen::Matrix<float, Eigen::Dynamic, Eigen::Dynamic> R_n;
-    Eigen::Matrix<float, Eigen::Dynamic, Eigen::Dynamic> T_n;
+    Eigen::Matrix3f R_n;
+    Eigen::Matrix3f T_n;
     cv2eigen(rotMat, R_n);
     cv2eigen(Tvec, T_n);
-    Eigen::Vector3f P_oc;
 
-    P_oc = -R_n.inverse() * T_n; */
+    Eigen::Vector3f euler_angles = R_n.eulerAngles(0, 1, 2);
+
+    float pitch = euler_angles[0] * 180 / 3.1416;
+    float yaw = euler_angles[1] * 180 / 3.1416;
+    float roll = euler_angles[2] * 180 / 3.1416;
+
+    cout << setprecision(4) << setw(30) << "yaw: " << yaw << "pitch: " << pitch << "roll" << roll << endl; */
 
     //cout << "坐标2" << Tvec << endl;
 
     //std::cout << "世界坐标" << P_oc << std::endl;
 
     cv::Mat pose_mat = cv::Mat(3, 4, CV_64FC1);
-    //cv::hconcat(rotMat, Tvec, pose_mat);
 
-    //cv::Mat euler_angle = cv::Mat(3, 1, CV_64FC1);
-    //getEulerAngles(pose_mat, euler_angle);
+    cv::hconcat(rotMat, taux, pose_mat);
+
+    cv::Mat euler_angle = cv::Mat(3, 1, CV_64FC1);
+    getEulerAngles(pose_mat, euler_angle);
+
     if (isRotationMatrix(rotMat))
     {
         rotationMatrixToEulerAngles(rotMat);

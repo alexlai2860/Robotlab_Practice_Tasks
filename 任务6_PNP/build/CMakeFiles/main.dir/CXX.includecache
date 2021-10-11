@@ -12,36 +12,38 @@ opencv2/imgproc/types_c.h
 opencv2/opencv.hpp
 -
 
-/home/alex/桌面/code/armor identify test/src/armor_box_identify.cpp
+/home/alex/桌面/code/practice_tasks/任务6_PNP/src/armor_box_identify.cpp
 armor_identify.h
-/home/alex/桌面/code/armor identify test/src/armor_identify.h
+/home/alex/桌面/code/practice_tasks/任务6_PNP/src/armor_identify.h
 algorithm
 -
 
-/home/alex/桌面/code/armor identify test/src/light_blobs_identify.cpp
+/home/alex/桌面/code/practice_tasks/任务6_PNP/src/light_blobs_identify.cpp
 armor_identify.h
-/home/alex/桌面/code/armor identify test/src/armor_identify.h
+/home/alex/桌面/code/practice_tasks/任务6_PNP/src/armor_identify.h
 iostream
 -
 
-/home/alex/桌面/code/armor identify test/src/main.cpp
+/home/alex/桌面/code/practice_tasks/任务6_PNP/src/main.cpp
 armor_identify.h
-/home/alex/桌面/code/armor identify test/src/armor_identify.h
+/home/alex/桌面/code/practice_tasks/任务6_PNP/src/armor_identify.h
 iostream
 -
 
-/home/alex/桌面/code/armor identify test/src/performance.cpp
+/home/alex/桌面/code/practice_tasks/任务6_PNP/src/performance.cpp
 armor_identify.h
-/home/alex/桌面/code/armor identify test/src/armor_identify.h
+/home/alex/桌面/code/practice_tasks/任务6_PNP/src/armor_identify.h
 iostream
 -
 
-/home/alex/桌面/code/armor identify test/src/pnp.cpp
+/home/alex/桌面/code/practice_tasks/任务6_PNP/src/pnp.cpp
 armor_identify.h
-/home/alex/桌面/code/armor identify test/src/armor_identify.h
+/home/alex/桌面/code/practice_tasks/任务6_PNP/src/armor_identify.h
 cmath
 -
 eigen3/Eigen/Dense
+-
+iomanip
 -
 opencv2/core/eigen.hpp
 -

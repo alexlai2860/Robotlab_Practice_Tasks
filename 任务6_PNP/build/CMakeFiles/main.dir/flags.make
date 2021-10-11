@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I"/home/alex/桌面/code/armor identify test/include" -I/usr/include/eigen3 -isystem /usr/local/include/opencv4 
+CXX_INCLUDES = -I/home/alex/桌面/code/practice_tasks/任务6_PNP/include -I/usr/include/eigen3 -isystem /usr/local/include/opencv4 
 

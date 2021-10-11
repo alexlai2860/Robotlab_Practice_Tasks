@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/alex/桌面/code/armor identify test"
+CMAKE_SOURCE_DIR = /home/alex/桌面/code/practice_tasks/任务6_PNP
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/alex/桌面/code/armor identify test/build"
+CMAKE_BINARY_DIR = /home/alex/桌面/code/practice_tasks/任务6_PNP/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/main.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/main.dir/flags.make
 
 CMakeFiles/main.dir/src/armor_box_identify.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/armor_box_identify.cpp.o: ../src/armor_box_identify.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alex/桌面/code/armor identify test/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/src/armor_box_identify.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/armor_box_identify.cpp.o -c "/home/alex/桌面/code/armor identify test/src/armor_box_identify.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/桌面/code/practice_tasks/任务6_PNP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/src/armor_box_identify.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/armor_box_identify.cpp.o -c /home/alex/桌面/code/practice_tasks/任务6_PNP/src/armor_box_identify.cpp
 
 CMakeFiles/main.dir/src/armor_box_identify.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/armor_box_identify.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alex/桌面/code/armor identify test/src/armor_box_identify.cpp" > CMakeFiles/main.dir/src/armor_box_identify.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/桌面/code/practice_tasks/任务6_PNP/src/armor_box_identify.cpp > CMakeFiles/main.dir/src/armor_box_identify.cpp.i
 
 CMakeFiles/main.dir/src/armor_box_identify.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/armor_box_identify.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alex/桌面/code/armor identify test/src/armor_box_identify.cpp" -o CMakeFiles/main.dir/src/armor_box_identify.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/桌面/code/practice_tasks/任务6_PNP/src/armor_box_identify.cpp -o CMakeFiles/main.dir/src/armor_box_identify.cpp.s
 
 CMakeFiles/main.dir/src/armor_box_identify.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/main.dir/src/armor_box_identify.cpp.o.provides.build: CMakeFiles/main
 
 CMakeFiles/main.dir/src/light_blobs_identify.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/light_blobs_identify.cpp.o: ../src/light_blobs_identify.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alex/桌面/code/armor identify test/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/light_blobs_identify.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/light_blobs_identify.cpp.o -c "/home/alex/桌面/code/armor identify test/src/light_blobs_identify.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/桌面/code/practice_tasks/任务6_PNP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/light_blobs_identify.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/light_blobs_identify.cpp.o -c /home/alex/桌面/code/practice_tasks/任务6_PNP/src/light_blobs_identify.cpp
 
 CMakeFiles/main.dir/src/light_blobs_identify.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/light_blobs_identify.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alex/桌面/code/armor identify test/src/light_blobs_identify.cpp" > CMakeFiles/main.dir/src/light_blobs_identify.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/桌面/code/practice_tasks/任务6_PNP/src/light_blobs_identify.cpp > CMakeFiles/main.dir/src/light_blobs_identify.cpp.i
 
 CMakeFiles/main.dir/src/light_blobs_identify.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/light_blobs_identify.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alex/桌面/code/armor identify test/src/light_blobs_identify.cpp" -o CMakeFiles/main.dir/src/light_blobs_identify.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/桌面/code/practice_tasks/任务6_PNP/src/light_blobs_identify.cpp -o CMakeFiles/main.dir/src/light_blobs_identify.cpp.s
 
 CMakeFiles/main.dir/src/light_blobs_identify.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/main.dir/src/light_blobs_identify.cpp.o.provides.build: CMakeFiles/ma
 
 CMakeFiles/main.dir/src/main.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alex/桌面/code/armor identify test/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/src/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/main.cpp.o -c "/home/alex/桌面/code/armor identify test/src/main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/桌面/code/practice_tasks/任务6_PNP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/main.dir/src/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/main.cpp.o -c /home/alex/桌面/code/practice_tasks/任务6_PNP/src/main.cpp
 
 CMakeFiles/main.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alex/桌面/code/armor identify test/src/main.cpp" > CMakeFiles/main.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/桌面/code/practice_tasks/任务6_PNP/src/main.cpp > CMakeFiles/main.dir/src/main.cpp.i
 
 CMakeFiles/main.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alex/桌面/code/armor identify test/src/main.cpp" -o CMakeFiles/main.dir/src/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/桌面/code/practice_tasks/任务6_PNP/src/main.cpp -o CMakeFiles/main.dir/src/main.cpp.s
 
 CMakeFiles/main.dir/src/main.cpp.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/main.dir/src/main.cpp.o.provides.build: CMakeFiles/main.dir/src/main.
 
 CMakeFiles/main.dir/src/performance.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/performance.cpp.o: ../src/performance.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alex/桌面/code/armor identify test/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/src/performance.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/performance.cpp.o -c "/home/alex/桌面/code/armor identify test/src/performance.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/桌面/code/practice_tasks/任务6_PNP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/main.dir/src/performance.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/performance.cpp.o -c /home/alex/桌面/code/practice_tasks/任务6_PNP/src/performance.cpp
 
 CMakeFiles/main.dir/src/performance.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/performance.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alex/桌面/code/armor identify test/src/performance.cpp" > CMakeFiles/main.dir/src/performance.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/桌面/code/practice_tasks/任务6_PNP/src/performance.cpp > CMakeFiles/main.dir/src/performance.cpp.i
 
 CMakeFiles/main.dir/src/performance.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/performance.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alex/桌面/code/armor identify test/src/performance.cpp" -o CMakeFiles/main.dir/src/performance.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/桌面/code/practice_tasks/任务6_PNP/src/performance.cpp -o CMakeFiles/main.dir/src/performance.cpp.s
 
 CMakeFiles/main.dir/src/performance.cpp.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/main.dir/src/performance.cpp.o.provides.build: CMakeFiles/main.dir/sr
 
 CMakeFiles/main.dir/src/pnp.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/pnp.cpp.o: ../src/pnp.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/alex/桌面/code/armor identify test/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/src/pnp.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/pnp.cpp.o -c "/home/alex/桌面/code/armor identify test/src/pnp.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/桌面/code/practice_tasks/任务6_PNP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/src/pnp.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/main.dir/src/pnp.cpp.o -c /home/alex/桌面/code/practice_tasks/任务6_PNP/src/pnp.cpp
 
 CMakeFiles/main.dir/src/pnp.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/main.dir/src/pnp.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/alex/桌面/code/armor identify test/src/pnp.cpp" > CMakeFiles/main.dir/src/pnp.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/桌面/code/practice_tasks/任务6_PNP/src/pnp.cpp > CMakeFiles/main.dir/src/pnp.cpp.i
 
 CMakeFiles/main.dir/src/pnp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/pnp.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/alex/桌面/code/armor identify test/src/pnp.cpp" -o CMakeFiles/main.dir/src/pnp.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/桌面/code/practice_tasks/任务6_PNP/src/pnp.cpp -o CMakeFiles/main.dir/src/pnp.cpp.s
 
 CMakeFiles/main.dir/src/pnp.cpp.o.requires:
 
@@ -210,7 +210,7 @@ main_EXTERNAL_OBJECTS =
 ../bin/main: /usr/local/lib/libopencv_imgproc.so.4.5.2
 ../bin/main: /usr/local/lib/libopencv_core.so.4.5.2
 ../bin/main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/alex/桌面/code/armor identify test/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable ../bin/main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alex/桌面/code/practice_tasks/任务6_PNP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable ../bin/main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -231,6 +231,6 @@ CMakeFiles/main.dir/clean:
 .PHONY : CMakeFiles/main.dir/clean
 
 CMakeFiles/main.dir/depend:
-	cd "/home/alex/桌面/code/armor identify test/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/alex/桌面/code/armor identify test" "/home/alex/桌面/code/armor identify test" "/home/alex/桌面/code/armor identify test/build" "/home/alex/桌面/code/armor identify test/build" "/home/alex/桌面/code/armor identify test/build/CMakeFiles/main.dir/DependInfo.cmake" --color=$(COLOR)
+	cd /home/alex/桌面/code/practice_tasks/任务6_PNP/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/alex/桌面/code/practice_tasks/任务6_PNP /home/alex/桌面/code/practice_tasks/任务6_PNP /home/alex/桌面/code/practice_tasks/任务6_PNP/build /home/alex/桌面/code/practice_tasks/任务6_PNP/build /home/alex/桌面/code/practice_tasks/任务6_PNP/build/CMakeFiles/main.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/main.dir/depend
 

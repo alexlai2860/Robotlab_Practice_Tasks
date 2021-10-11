@@ -1,4 +1,4 @@
-# Install script for directory: /home/alex/桌面/code/armor identify test
+# Install script for directory: /home/alex/桌面/code/practice_tasks/任务6_PNP
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/alex/桌面/code/armor identify test/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/alex/桌面/code/practice_tasks/任务6_PNP/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

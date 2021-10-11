@@ -11,7 +11,7 @@ using namespace std;
 int main()
 {
     cv::Mat src, frame;
-    cv::VideoCapture capture("005.mp4"); /*可更改视频路径*/
+    cv::VideoCapture capture("006.avi"); /*可更改视频路径*/
     Performance p1;
     p1.t = cv::getTickCount();
     while (1)
@@ -21,6 +21,7 @@ int main()
         {
             p1.framenum++;
             src = frame;
+            //cout << src.cols << " " << src.rows << endl;
             cv::waitKey(50);
             // cv::imshow("src image", src);
             string c = "RED"; /*若装甲板为红色，则改成""RED"*/

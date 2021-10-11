@@ -60,7 +60,7 @@ bool AutoAim::LightBlobsidentify(cv::Mat &src, LightBlob &lightblob)
     cv::GaussianBlur(add_image, add_image, cv::Size(7, 7), 2, 2);
     cv::Mat element3 = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(3, 3));
     cv::dilate(add_image, add_image, element3);
-    // cv::imshow("add_image", add_image);
+    cv::imshow("add_image", add_image);
 
     /*寻找边缘*/
     cv::findContours(add_image, contours, hireachy, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_NONE, cv::Point());
@@ -92,7 +92,7 @@ bool AutoAim::LightBlobsidentify(cv::Mat &src, LightBlob &lightblob)
         }
     }
     // cv::imshow("contours", result);
-    // cv::imshow("light_blobs", src);
+    cv::imshow("light_blobs", src);
     // cout << lightblob.num << endl;
     return lightblob.num >= 2;
 }
