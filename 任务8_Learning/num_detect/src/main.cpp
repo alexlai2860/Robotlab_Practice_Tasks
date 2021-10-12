@@ -14,11 +14,8 @@
 int main()
 {
     string path = "MNIST.onnx";
-    Dnn_NumDetect detect1(path);
-
-    Mat src = imread("test.png");
-    imshow("src", src);
-    waitKey(1000);
+    Dnn_NumDetect detect1;
+    detect1.loadModel(path);
     detect1.Classification();
     return 0;
 }
