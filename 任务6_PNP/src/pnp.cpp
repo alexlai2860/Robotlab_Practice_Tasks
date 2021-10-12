@@ -17,7 +17,7 @@ double get_distance(cv::Point2f &p1, cv::Point2f &p2)
     double distance = sqrt(pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2));
     return distance;
 }
-//对顶点进行重新排序
+//对顶点进行重新排序，离坐标原点最近的为起点[0]
 void PNP::set_vertex(cv::Point2f p[4])
 {
     double distance[4];
@@ -85,9 +85,7 @@ void getEulerAngles(cv::Mat pose_mat, cv::Vec3d euler_angle)
     cout << setprecision(4) << setiosflags(ios::left) << "yaw: " << setw(8) << yaw << "pitch: " << setw(8) << pitch << "roll: " << setw(8) << roll << endl;
 }
 
-/**
- * 功能： 1. 检查是否是旋转矩阵
-**/
+// 检查是否是旋转矩阵
 bool isRotationMatrix(cv::Mat &R)
 {
     cv::Mat Rt;
@@ -98,7 +96,7 @@ bool isRotationMatrix(cv::Mat &R)
     return norm(I, shouldBeIdentity) < 1e-6;
 }
 
-//
+//直接算欧拉角
 cv::Vec3f rotationMatrixToEulerAngles(cv::Mat &R)
 {
     assert(isRotationMatrix(R));
@@ -128,6 +126,7 @@ cv::Vec3f rotationMatrixToEulerAngles(cv::Mat &R)
     return cv::Vec3f(x, y, z);
 }
 
+//PNP解算主函数，获取相机位置(距离)及装甲板的姿态
 void PNP::get_position()
 {
     cv::Mat camera_matrix;
@@ -148,17 +147,6 @@ void PNP::get_position()
         armor_vertex2.push_back(this->get_vertex(i));
     }
 
-    /*for (int i = 0; i < 4; i++)
-    {
-        armor_vertex2[i].x = armor_vertex2[i].x - 
-    }*/
-
-    /* 
-    cout << pnp.get_vertex(1, pnp).x << endl;
-    cout << "vertex" << armor_vertex2[1].x << " " << armor_vertex2[1].y << endl;
-    cout << camera_matrix << endl;
-    cout << distortion_coefficients << endl; */
-
     cv::Mat Rvec;
     cv::Mat_<float> Tvec;
     cv::Mat raux, taux;
@@ -171,7 +159,7 @@ void PNP::get_position()
     cv::Mat rotMat;
     cv::Rodrigues(raux, rotMat); //由于solvePnP返回的是旋转向量，故用罗德里格斯变换变成旋转矩阵
 
-    /* //格式转换
+    /* //格式转换,并用engle库求解三个轴偏转的角度
     Eigen::Matrix3f R_n;
     Eigen::Matrix3f T_n;
     cv2eigen(rotMat, R_n);
@@ -183,12 +171,16 @@ void PNP::get_position()
     float yaw = euler_angles[1] * 180 / 3.1416;
     float roll = euler_angles[2] * 180 / 3.1416;
 
-    cout << setprecision(4) << setw(30) << "yaw: " << yaw << "pitch: " << pitch << "roll" << roll << endl; */
+    cout << setprecision(4) << setw(30) << "yaw: " << yaw << "pitch: " << pitch << "roll" << roll << endl; 
 
-    //cout << "坐标2" << Tvec << endl;
+    
+    cout << "世界坐标" << P_oc << std::endl;*/
 
-    //std::cout << "世界坐标" << P_oc << std::endl;
+    //输出距离
+    cout << "距离" << Tvec.at<float>(2) << endl;
 
+    //尝试用两种方式求解三个轴偏转的角度
+    //第一种
     cv::Mat pose_mat = cv::Mat(3, 4, CV_64FC1);
 
     cv::hconcat(rotMat, taux, pose_mat);
@@ -196,6 +188,7 @@ void PNP::get_position()
     cv::Mat euler_angle = cv::Mat(3, 1, CV_64FC1);
     getEulerAngles(pose_mat, euler_angle);
 
+    //第二种
     if (isRotationMatrix(rotMat))
     {
         rotationMatrixToEulerAngles(rotMat);
