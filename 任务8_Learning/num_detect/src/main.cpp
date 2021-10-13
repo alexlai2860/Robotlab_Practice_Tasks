@@ -13,7 +13,7 @@
 
 int main()
 {
-    string path = "MNIST.onnx";
+    string path = "MNIST2.onnx";
     Dnn_NumDetect detect1;
     detect1.loadModel(path);
     detect1.Classification();
