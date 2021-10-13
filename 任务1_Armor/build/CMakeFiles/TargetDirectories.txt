@@ -1,3 +1,0 @@
-/home/alex/桌面/code/armor identify test/build/CMakeFiles/rebuild_cache.dir
-/home/alex/桌面/code/armor identify test/build/CMakeFiles/main.dir
-/home/alex/桌面/code/armor identify test/build/CMakeFiles/edit_cache.dir

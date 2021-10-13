@@ -21,30 +21,30 @@ double lightblob_length(const cv::RotatedRect &light_blob)
 /* 判断两个灯条的角度差*/
 static bool angelJudge(const cv::RotatedRect &light_blob_i, const cv::RotatedRect &light_blob_j)
 {
-    float angle_i = light_blob_i.size.width > light_blob_i.size.height ? light_blob_i.angle : light_blob_i.angle + 90;
-    float angle_j = light_blob_j.size.width > light_blob_j.size.height ? light_blob_j.angle : light_blob_j.angle + 90;
+    auto angle_i = light_blob_i.size.width > light_blob_i.size.height ? light_blob_i.angle : light_blob_i.angle + 90;
+    auto angle_j = light_blob_j.size.width > light_blob_j.size.height ? light_blob_j.angle : light_blob_j.angle + 90;
     return abs(angle_i - angle_j) < 4.5;
 }
 /* 判断两个灯条的高度差*/
 static bool heightJudge(const cv::RotatedRect &light_blob_i, const cv::RotatedRect &light_blob_j)
 {
-    float height = light_blob_i.center.y - light_blob_j.center.y;
+    auto height = light_blob_i.center.y - light_blob_j.center.y;
     return abs(height) < 100;
 }
 /*判断两个灯条的间距*/
 static bool lengthJudge(const cv::RotatedRect &light_blob_i, const cv::RotatedRect &light_blob_j)
 {
-    double length_i = lightblob_length(light_blob_i);
-    double length_j = lightblob_length(light_blob_j);
+    auto length_i = lightblob_length(light_blob_i);
+    auto length_j = lightblob_length(light_blob_j);
     double side_length;
     side_length = sqrt(pow(light_blob_i.center.x - light_blob_j.center.x, 2) + pow(light_blob_i.center.y - light_blob_j.center.y, 2));
-    return (side_length / length_i < 2.5 && side_length / length_i > 0.75);
+    return (side_length / length_i < 3.5 && side_length / length_i > 0.75);
 }
 /* 判断两个灯条的长度比*/
 static bool lengthRatioJudge(const cv::RotatedRect &light_blob_i, const cv::RotatedRect &light_blob_j)
 {
-    double length_i = lightblob_length(light_blob_i);
-    double length_j = lightblob_length(light_blob_j);
+    auto length_i = lightblob_length(light_blob_i);
+    auto length_j = lightblob_length(light_blob_j);
     return (length_i / length_j < 1.5 && length_i / length_j > 0.7);
 }
 /* 判断是否匹配*/
@@ -91,7 +91,7 @@ bool AutoAim::ArmorBoxidentify(cv::Mat &src, LightBlob &lightblob, ArmorBox &arm
                 lightblob.rect[j].size.width > lightblob.rect[j].size.height ? recj2 = cv::Point2f(p_j[2].x / 2 + p_j[3].x / 2, p_j[2].y / 2 + p_j[3].y / 2) : recj2 = cv::Point2f(p_j[2].x / 2 + p_j[1].x / 2, p_j[2].y / 2 + p_j[1].y / 2);
                 if (diagonaljudge(reci1, reci2, recj1, recj2) > 100)
                 {
-                    cv::Point2f center = findcenter(lightblob.rect[i], lightblob.rect[j], armorbox);
+                    auto center = findcenter(lightblob.rect[i], lightblob.rect[j], armorbox);
                     cv::line(src, reci1, center, cv::Scalar(0, 235, 255), 2);
                     cv::line(src, recj1, center, cv::Scalar(0, 235, 255), 2);
                     cv::line(src, reci2, center, cv::Scalar(0, 235, 255), 2);

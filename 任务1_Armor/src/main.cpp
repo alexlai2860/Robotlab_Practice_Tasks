@@ -11,7 +11,7 @@ using namespace std;
 int main()
 {
     cv::Mat src, frame;
-    cv::VideoCapture capture("005.mp4"); /*可更改视频路径*/
+    cv::VideoCapture capture("006.avi"); /*可更改视频路径*/
     Performance p1;
     p1.t = cv::getTickCount();
     while (1)
@@ -21,14 +21,14 @@ int main()
         {
             p1.framenum++;
             src = frame;
-            cv::waitKey(50);
+            //cout << src.cols << " " << src.rows << endl;
             // cv::imshow("src image", src);
             string c = "RED"; /*若装甲板为红色，则改成""RED"*/
             LightBlob lb1(c);
             ArmorBox ab1(c);
             AutoAim a1;
             PNP pnp1;
-            cv::Mat src2 = src.clone();
+            auto src2 = src.clone();
             if (a1.LightBlobsidentify(src, lb1))
             {
                 if (a1.ArmorBoxidentify(src2, lb1, ab1, pnp1))

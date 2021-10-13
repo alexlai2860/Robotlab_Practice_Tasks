@@ -76,11 +76,11 @@ bool AutoAim::LightBlobsidentify(cv::Mat &src, LightBlob &lightblob)
         {
             cv::RotatedRect rect[100];
             rect[i] = cv::minAreaRect(contours[i]);
-            double r1 = hw_rate(rect[i]);
+            auto r1 = hw_rate(rect[i]);
             // cout << r1 << endl;
             if (r1 > 2.5)
             {
-                double r2 = areaRatio(contours[i], rect[i]);
+                auto r2 = areaRatio(contours[i], rect[i]);
                 if (0.4 < r2)
                 {
                     lightblob.num++;

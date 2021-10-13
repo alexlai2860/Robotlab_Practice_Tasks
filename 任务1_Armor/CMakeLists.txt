@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.1)
 
-project (RM_armor_identify)
+project (PNP_test)
 
 set (CMAKE_BUILD_TYPE Debug)
 
