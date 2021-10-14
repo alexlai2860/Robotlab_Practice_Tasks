@@ -72,3 +72,9 @@ public:
     }
     ~Performance() {}
 };
+class Kalman
+{
+public:
+    void kalmanFlitertest(cv::Mat &src, ArmorBox &points, cv::KalmanFilter &KF, cv::Mat &measurement);
+    Kalman() = default;
+};

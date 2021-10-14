@@ -11,7 +11,7 @@ using namespace std;
 int main()
 {
     cv::Mat src, frame;
-    cv::VideoCapture capture("006.avi"); /*可更改视频路径*/
+    cv::VideoCapture capture("006.avi"); /*可更改视频路径,PNP测试为006.avi,小陀螺为007.avi*/
     Performance p1;
     p1.t = cv::getTickCount();
     //1.初始化
@@ -49,10 +49,10 @@ int main()
                     p1.n++;
                     pnp1.get_position();
                     kalman1.kalmanFlitertest(src2, ab1, KF, measurement);
-                    cv::imshow("armor box1", src2);
-                    cv::waitKey(1);
                 }
             }
+            cv::imshow("armor box1", src2);
+            cv::waitKey(1);
         }
         else
         {

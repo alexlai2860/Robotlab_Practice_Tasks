@@ -1,3 +1,0 @@
-/home/alex/桌面/code/practice_tasks/任务1_Armor/build/CMakeFiles/rebuild_cache.dir
-/home/alex/桌面/code/practice_tasks/任务1_Armor/build/CMakeFiles/main.dir
-/home/alex/桌面/code/practice_tasks/任务1_Armor/build/CMakeFiles/edit_cache.dir
