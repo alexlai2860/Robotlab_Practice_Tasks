@@ -45,6 +45,7 @@ void EnergyIdentify::circleCenterIdentify(cv::Mat &src, Energy &energy, Energy_p
             if (rcompare.hwRate(rect[i], energy_param.r_hwrate_max, energy_param.r_hwrate_min))
             {
                 cv::Rect rec = rect[i].boundingRect();
+                this->circle_center = rect[i].center;
                 cv::rectangle(src, rec, cv::Scalar(0, 215, 255), 1, 8, 0);
             }
         }

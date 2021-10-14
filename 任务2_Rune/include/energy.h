@@ -79,10 +79,20 @@ public:
     void Init(Energy_param &e);
     void circleCenterIdentify(cv::Mat &src, Energy &energy, Energy_param &energy_param, rCompare &rcompare, SplitColor &);
     bool fansIdentify(cv::Mat &src, Energy &energy, Energy_param &energy_param, Compare &compare, SplitColor &); //找到待击打扇叶和装甲板
+    cv::Point2f getPoint(int i);
     EnergyIdentify() = default;
     ~EnergyIdentify() {}
 
 private:
     void energyInit(Energy_param &e);
     void circleCenterInit(Energy_param &e);
+    cv::Point2f armor_center;
+    cv::Point2f circle_center;
+};
+
+class Kalman
+{
+public:
+    void kalmanFlitertest(cv::Mat &src, EnergyIdentify &points, cv::KalmanFilter &KF, cv::Mat &measurement);
+    Kalman() = default;
 };

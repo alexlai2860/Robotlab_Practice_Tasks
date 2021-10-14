@@ -109,7 +109,8 @@ bool EnergyIdentify::fansIdentify(cv::Mat &src, Energy &energy, Energy_param &en
                             {
                                 //绘制装甲板矩形框和打击点
                                 cv::line(src, vertex[i], vertex[(i + 1) % 4], cv::Scalar(0, 0, 255), 1, 8, 0);
-                                cv::Point2f armor_center((vertex[1].x + vertex[3].x) / 2, (vertex[1].y + vertex[3].y) / 2);
+                                cv::Point2f center((vertex[1].x + vertex[3].x) / 2, (vertex[1].y + vertex[3].y) / 2);
+                                this->armor_center = center;
                                 cv::circle(src, armor_center, 2, cv::Scalar(255, 255, 255), 2, 8, 0);
                             }
                         }
