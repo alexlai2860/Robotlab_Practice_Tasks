@@ -26,7 +26,7 @@ static double areaRatio(const std::vector<cv::Point> &contour, const cv::Rotated
     return cv::contourArea(contour) / Rect.size.area();
 }
 /*定义灯条识别函数*/
-bool AutoAim::LightBlobsidentify(cv::Mat &src, LightBlob &lightblob)
+bool AutoAim::lightBlobsIdentify(cv::Mat &src, LightBlob &lightblob)
 {
     vector<cv::Mat> channels;
     vector<cv::Vec4i> hireachy;
@@ -40,7 +40,6 @@ bool AutoAim::LightBlobsidentify(cv::Mat &src, LightBlob &lightblob)
     cv::threshold(gray_image2, binary_image2, 225, 255, CV_THRESH_BINARY);
     cv::Mat element = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(3, 3));
     cv::dilate(binary_image2, binary_image2, element);
-    //cv::imshow("binary_image2", binary_image2);
 
     /*分离色彩通道*/
     cv::split(src, channels);
@@ -54,18 +53,16 @@ bool AutoAim::LightBlobsidentify(cv::Mat &src, LightBlob &lightblob)
     cv::threshold(gray_image, binary_image, 125, 255, CV_THRESH_BINARY);
     cv::Mat element2 = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(3, 3));
     cv::dilate(binary_image, binary_image, element2);
-    cv::imshow("binary_image1", binary_image);
+    //cv::imshow("binary_image1", binary_image);
 
     /*图像相加*/
     cv::Mat add_image = binary_image + binary_image2;
     //cv::GaussianBlur(add_image, add_image, cv::Size(7, 7), 2, 2);
     cv::Mat element3 = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(3, 3));
     cv::dilate(add_image, add_image, element3);
-    //cv::imshow("add_image", add_image);
 
     /*寻找边缘*/
     cv::Canny(add_image, add_image, 100, 240, 3, false);
-    //cv::imshow("add_image2", add_image);
     cv::findContours(add_image, contours, hireachy, cv::RETR_TREE, cv::CHAIN_APPROX_NONE, cv::Point());
     // cout << contours.size() << endl;
     int i;
@@ -80,7 +77,6 @@ bool AutoAim::LightBlobsidentify(cv::Mat &src, LightBlob &lightblob)
             cv::RotatedRect rect[100];
             rect[i] = cv::minAreaRect(contours[i]);
             auto r1 = hw_rate(rect[i]);
-            // cout << r1 << endl;
             if (r1 > 2.5)
             {
                 auto r2 = areaRatio(contours[i], rect[i]);

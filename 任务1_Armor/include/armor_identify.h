@@ -36,10 +36,10 @@ public:
 class PNP
 {
 public:
-    void set_vertex(cv::Point2f p[4]);
-    cv::Point2f get_vertex(int i);
-    void get_position();
-    void get_euler_angle();
+    void setVertex(cv::Point2f p[4]);
+    cv::Point2f getVertex(int i);
+    void getPosition();
+    void getEulerAngle();
     PNP() = default;
     ~PNP() {}
 
@@ -52,8 +52,8 @@ class AutoAim
 public:
     AutoAim() = default;
     ~AutoAim() {}
-    bool LightBlobsidentify(cv::Mat &src, LightBlob &LightBlob);
-    bool ArmorBoxidentify(cv::Mat &src, LightBlob &lightblob, ArmorBox &armorbox, PNP &pnp);
+    bool lightBlobsIdentify(cv::Mat &src, LightBlob &lightblob);
+    bool armorBoxIdentify(cv::Mat &src, LightBlob &lightblob, ArmorBox &armorbox, PNP &pnp);
 };
 
 class Performance

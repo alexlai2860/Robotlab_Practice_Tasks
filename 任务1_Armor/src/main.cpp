@@ -18,9 +18,7 @@ int main()
     const int stateNum = 4;   //状态值
     const int measureNum = 2; //测量值
     cv::KalmanFilter KF(stateNum, measureNum, 0);
-
     KF.transitionMatrix = (cv::Mat_<float>(4, 4) << 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1); //转移矩阵A
-    //KF.transitionMatrix = (cv::Mat_<float>(2, 2) << 1, 1, 0, 1);       //转移矩阵A
     cv::setIdentity(KF.measurementMatrix);                             //测量矩阵H
     cv::setIdentity(KF.processNoiseCov, cv::Scalar::all(1e-5));        //系统噪声方差矩阵Q
     cv::setIdentity(KF.measurementNoiseCov, cv::Scalar::all(1e-1));    //测量噪声方差矩阵R
@@ -36,19 +34,19 @@ int main()
             src = frame;
             //cout << src.cols << " " << src.rows << endl;
             // cv::imshow("src image", src);
-            string c = "RED"; /*若装甲板为红色，则改成""RED"*/
+            string c = "RED"; /*若装甲板为蓝色，则改成"BLUE"*/
             LightBlob lb1(c);
             ArmorBox ab1(c);
             AutoAim a1;
             PNP pnp1;
             Kalman kalman1;
             auto src2 = src.clone();
-            if (a1.LightBlobsidentify(src, lb1))
+            if (a1.lightBlobsIdentify(src, lb1))
             {
-                if (a1.ArmorBoxidentify(src2, lb1, ab1, pnp1))
+                if (a1.armorBoxIdentify(src2, lb1, ab1, pnp1))
                 {
                     p1.n++;
-                    pnp1.get_position();
+                    pnp1.getPosition();
                     kalman1.kalmanFlitertest(src2, ab1, KF, measurement);
                 }
             }

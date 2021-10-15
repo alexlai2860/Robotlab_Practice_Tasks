@@ -61,7 +61,7 @@ cv::Point2f findcenter(const cv::RotatedRect &light_blob_i, const cv::RotatedRec
     return armorbox.center;
 }
 /*返回长边和对角线中的最短长度，用于排除菱形*/
-double diagonaljudge(cv::Point2f &p1, cv::Point2f &p2, cv::Point2f &p3, cv::Point2f &p4)
+double diagonalJudge(cv::Point2f &p1, cv::Point2f &p2, cv::Point2f &p3, cv::Point2f &p4)
 {
     double l1 = sqrt((pow(p1.x - p3.x, 2) + pow(p1.y - p3.y, 2)));
     double l2 = sqrt((pow(p2.x - p4.x, 2) + pow(p2.y - p4.y, 2)));
@@ -72,7 +72,7 @@ double diagonaljudge(cv::Point2f &p1, cv::Point2f &p2, cv::Point2f &p3, cv::Poin
 }
 
 /*寻找装甲板并绘制*/
-bool AutoAim::ArmorBoxidentify(cv::Mat &src, LightBlob &lightblob, ArmorBox &armorbox, PNP &pnp)
+bool AutoAim::armorBoxIdentify(cv::Mat &src, LightBlob &lightblob, ArmorBox &armorbox, PNP &pnp)
 {
     armorbox.box_num = 0;
     for (int i = 0; i < lightblob.num; i++)
@@ -89,7 +89,7 @@ bool AutoAim::ArmorBoxidentify(cv::Mat &src, LightBlob &lightblob, ArmorBox &arm
                 lightblob.rect[i].size.width > lightblob.rect[i].size.height ? reci2 = cv::Point2f(p_i[2].x / 2 + p_i[3].x / 2, p_i[2].y / 2 + p_i[3].y / 2) : reci2 = cv::Point2f(p_i[2].x / 2 + p_i[1].x / 2, p_i[2].y / 2 + p_i[1].y / 2);
                 lightblob.rect[j].size.width > lightblob.rect[j].size.height ? recj1 = cv::Point2f(p_j[0].x / 2 + p_j[1].x / 2, p_j[0].y / 2 + p_j[1].y / 2) : recj1 = cv::Point2f(p_j[0].x / 2 + p_j[3].x / 2, p_j[0].y / 2 + p_j[3].y / 2);
                 lightblob.rect[j].size.width > lightblob.rect[j].size.height ? recj2 = cv::Point2f(p_j[2].x / 2 + p_j[3].x / 2, p_j[2].y / 2 + p_j[3].y / 2) : recj2 = cv::Point2f(p_j[2].x / 2 + p_j[1].x / 2, p_j[2].y / 2 + p_j[1].y / 2);
-                if (diagonaljudge(reci1, reci2, recj1, recj2) > 50)  //这个参数对识别距离要求比较高，可能得和其他参数联动效果会好一点
+                if (diagonalJudge(reci1, reci2, recj1, recj2) > 50)  //这个参数对识别距离要求比较高，可能得和其他参数联动效果会好一点
                 {
                     auto center = findcenter(lightblob.rect[i], lightblob.rect[j], armorbox);
                     cv::line(src, reci1, center, cv::Scalar(0, 235, 255), 2);
@@ -106,17 +106,17 @@ bool AutoAim::ArmorBoxidentify(cv::Mat &src, LightBlob &lightblob, ArmorBox &arm
                     p[1] = reci2;
                     p[2] = recj1;
                     p[3] = recj2;
-                    pnp.set_vertex(p);
-                    cv::circle(src, pnp.get_vertex(0), 2, cv::Scalar(0, 0, 255), 2);
-                    cv::circle(src, pnp.get_vertex(1), 4, cv::Scalar(0, 0, 255), 2);
-                    cv::circle(src, pnp.get_vertex(2), 6, cv::Scalar(0, 0, 255), 2);
-                    cv::circle(src, pnp.get_vertex(3), 8, cv::Scalar(0, 0, 255), 2);
+                    pnp.setVertex(p);
+                    cv::circle(src, pnp.getVertex(0), 2, cv::Scalar(0, 0, 255), 2);
+                    cv::circle(src, pnp.getVertex(1), 4, cv::Scalar(0, 0, 255), 2);
+                    cv::circle(src, pnp.getVertex(2), 6, cv::Scalar(0, 0, 255), 2);
+                    cv::circle(src, pnp.getVertex(3), 8, cv::Scalar(0, 0, 255), 2);
                 }
             }
         }
     }
     // cout << armorbox.box_num << endl;
-    cv::imshow("armor box", src);
-    cv::waitKey(1);
+    //cv::imshow("armor box", src);
+    //cv::waitKey(1);
     return armorbox.box_num >= 1;
 }

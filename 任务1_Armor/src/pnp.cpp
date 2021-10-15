@@ -18,7 +18,7 @@ double get_distance(cv::Point2f &p1, cv::Point2f &p2)
     return distance;
 }
 //对顶点进行重新排序，离坐标原点最近的为起点[0]
-void PNP::set_vertex(cv::Point2f p[4])
+void PNP::setVertex(cv::Point2f p[4])
 {
     double distance[4];
     for (int i = 0; i < 4; i++)
@@ -63,7 +63,7 @@ void PNP::set_vertex(cv::Point2f p[4])
     }
 }
 
-cv::Point2f PNP::get_vertex(int i)
+cv::Point2f PNP::getVertex(int i)
 {
     return this->vertex[i];
 }
@@ -127,7 +127,7 @@ cv::Vec3f rotationMatrixToEulerAngles(cv::Mat &R)
 }
 
 //PNP解算主函数，获取相机位置(距离)及装甲板的姿态
-void PNP::get_position()
+void PNP::getPosition()
 {
     cv::Mat camera_matrix;
     cv::Mat distortion_coefficients;
@@ -136,15 +136,15 @@ void PNP::get_position()
     fs["distortion_coefficients"] >> distortion_coefficients;
 
     vector<cv::Point3f> armor_vertex1;
-    armor_vertex1.push_back(cv::Point3f(-33.75f, -13.5f, 0));
-    armor_vertex1.push_back(cv::Point3f(+33.75f, -13.5f, 0));
-    armor_vertex1.push_back(cv::Point3f(+33.75f, +13.5f, 0));
-    armor_vertex1.push_back(cv::Point3f(-33.75f, +13.5f, 0));
+    armor_vertex1.push_back(cv::Point3f(-33.75f, -13.25f, 0));
+    armor_vertex1.push_back(cv::Point3f(+33.75f, -13.25f, 0));
+    armor_vertex1.push_back(cv::Point3f(+33.75f, +13.25f, 0));
+    armor_vertex1.push_back(cv::Point3f(-33.75f, +13.25f, 0));
 
     vector<cv::Point2f> armor_vertex2;
     for (int i = 0; i < 4; i++)
     {
-        armor_vertex2.push_back(this->get_vertex(i));
+        armor_vertex2.push_back(this->getVertex(i));
     }
 
     cv::Mat Rvec;
@@ -171,13 +171,10 @@ void PNP::get_position()
     float yaw = euler_angles[1] * 180 / 3.1416;
     float roll = euler_angles[2] * 180 / 3.1416;
 
-    cout << setprecision(4) << setw(30) << "yaw: " << yaw << "pitch: " << pitch << "roll" << roll << endl; 
-
-    
-    cout << "世界坐标" << P_oc << std::endl;*/
+    cout << setprecision(4) << "yaw: " << yaw << "pitch: " << pitch << "roll" << roll << endl;*/
 
     //输出距离
-    cout << "距离" << Tvec.at<float>(2) << endl;
+    cout << "距离" << Tvec.at<float>(2) << endl; 
 
     //尝试用两种方式求解三个轴偏转的角度
     //第一种
