@@ -20,12 +20,13 @@ int main()
     cv::KalmanFilter KF(stateNum, measureNum, 0);
 
     KF.transitionMatrix = (cv::Mat_<float>(4, 4) << 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1); //转移矩阵A
-    cv::setIdentity(KF.measurementMatrix);                                                           //测量矩阵H
-    cv::setIdentity(KF.processNoiseCov, cv::Scalar::all(1e-5));                                      //系统噪声方差矩阵Q
-    cv::setIdentity(KF.measurementNoiseCov, cv::Scalar::all(1e-1));                                  //测量噪声方差矩阵R
-    cv::setIdentity(KF.errorCovPost, cv::Scalar::all(1));                                            //后验错误估计协方差矩阵P
-    cv::randn(KF.statePost, cv::Scalar::all(0), cv::Scalar::all(0.1));                               //初始状态值x(0)
-    cv::Mat measurement = cv::Mat::zeros(measureNum, 1, CV_32F);                                     //初始测量值x'(0)
+    //KF.transitionMatrix = (cv::Mat_<float>(2, 2) << 1, 1, 0, 1);       //转移矩阵A
+    cv::setIdentity(KF.measurementMatrix);                             //测量矩阵H
+    cv::setIdentity(KF.processNoiseCov, cv::Scalar::all(1e-5));        //系统噪声方差矩阵Q
+    cv::setIdentity(KF.measurementNoiseCov, cv::Scalar::all(1e-1));    //测量噪声方差矩阵R
+    cv::setIdentity(KF.errorCovPost, cv::Scalar::all(1));              //后验错误估计协方差矩阵P
+    cv::randn(KF.statePost, cv::Scalar::all(0), cv::Scalar::all(0.1)); //初始状态值x(0)
+    cv::Mat measurement = cv::Mat::zeros(measureNum, 1, CV_32F);       //初始测量值x'(0)
     while (1)
     {
         capture >> frame;
@@ -52,7 +53,7 @@ int main()
                 }
             }
             cv::imshow("armor box1", src2);
-            cv::waitKey(1);
+            cv::waitKey(25);
         }
         else
         {

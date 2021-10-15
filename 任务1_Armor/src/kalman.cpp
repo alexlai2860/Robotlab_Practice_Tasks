@@ -31,6 +31,10 @@ void Kalman::kalmanFlitertest(Mat &src, ArmorBox &points, KalmanFilter &KF, Mat 
 
     KF.correct(measurement);
 
-    circle(src, predict_pt, 3, Scalar(0, 255, 0), 3);
+    Point anti_kalman;
+    anti_kalman.x = 0.2 * (points.center.x - predict_pt.x) + points.center.x;
+    anti_kalman.y = 0.2 * (points.center.y - predict_pt.y) + points.center.y;
+
+    circle(src, anti_kalman, 3, Scalar(0, 255, 0), 3);
 
 }
